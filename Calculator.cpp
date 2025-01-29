@@ -4,39 +4,37 @@
 
 class Calculator 
 {
-public:
+private :
     double num1 = 0;
     double num2 = 0;
 public: 
     double add(double num1 ,double num2)
     {
-        std::cout<< "num1 + num2 = " << num1 + num2 << std::endl;
-        return 0;
+         
+        return num1 + num2;
     }
     double multiply(double num1, double num2)
     {
-        std::cout << "num1 * num2 = " << num1 * num2 << std::endl;
-        return 0;
+        
+        return num1 * num2;
     }
     double subtract_1_2(double num1, double num2)
     {
-        std::cout << "num1 - num2 = " << num1 - num2 << std::endl;
-        return 0;
+        
+        return   num1 - num2;
     }
     double subtract_2_1(double num1, double num2)
     {
-        std::cout << "num2 - num1 = " << num2 - num1 << std::endl;
-        return 0;
+        return num2 - num1;
     }
     double divide_1_2(double num1, double num2)
     {
-        std::cout << "num1 / num2 = " << num1 / num2 << std::endl;
-        return 0;
+       return num1 / num2;
     }
     double divide_2_1(double num1, double num2)
     {
-       std::cout << "num2 / num1 = " << num2 / num1 << std::endl;
-        return 0;
+       
+        return num2 / num1;
     }
     bool set_num1(double *num1) 
     {
@@ -79,12 +77,12 @@ int main()
 
         if (cal.set_num1(&FirstNumber) == true && cal.set_num2(&SecondNumber) == true)
         {
-            cal.add(FirstNumber, SecondNumber);
-            cal.multiply(FirstNumber, SecondNumber);
-            cal.subtract_1_2(FirstNumber, SecondNumber);
-            cal.subtract_2_1(FirstNumber, SecondNumber);
-            cal.divide_1_2(FirstNumber, SecondNumber);
-            cal.divide_2_1(FirstNumber, SecondNumber);
+            std::cout << "num1 + num2 = " << cal.add(FirstNumber, SecondNumber) << std::endl;
+            std::cout << "num1 - num2 = " << cal.multiply(FirstNumber, SecondNumber) << std::endl;
+            std::cout << "num2 - num1 = " << cal.subtract_1_2(FirstNumber, SecondNumber)<<std::endl;
+            std::cout << "num1 * num2 = " << cal.subtract_2_1(FirstNumber, SecondNumber)<<std::endl;
+            std::cout << "num1 / num2 = " << cal.divide_1_2(FirstNumber, SecondNumber)<< std::endl;
+            std::cout << "num2 / num1 = " << cal.divide_2_1(FirstNumber, SecondNumber)<<std::endl;
             std::cout << "Введите num1: ";
             std::cin >> FirstNumber;
             std::cout << "Введите num2: ";
