@@ -15,20 +15,20 @@ public:
     {
         StartCount = 1;
     }
-    int PLusOne()
+    void PLusOne()
     {
         StartCount += 1;
-        return 0;
+        
     }
-    int MinusOne() 
+    void MinusOne() 
     {
         StartCount -= 1;
-        return 0;
+        
 
     }
     int GetCurrentCount() 
     {
-        cout << StartCount;
+        cout << StartCount << endl;
         return 0;
     }
     
@@ -46,67 +46,46 @@ int main()
     cout << "Вы хотите указать начальное значение счётчика? " << endl;
     cout << "Введите да или нет:";
     cin >> answer;
-    
-        if (answer.compare(Yes) == 0)
+    Counter c;
+    if (answer == Yes)
+    {
+        cout << "Введите начальное значение счётчика:";
+        cin >> StartCount;
+        c = Counter(StartCount);
+
+    }
+    else if (answer == No)
+    {
+        c = Counter();
+
+    }
+    do
+    {
+        cout << "Введите команду ('+', '-', '=' или 'x'):" ;
+        cin >> Symbol;
+        if (Symbol == '+')
         {
-            cout << "Введите начальное значение счётчика:";
-            cin >> StartCount;
-            Counter count(StartCount);
-            while (true) 
-            {
-                cout << "Введите команду ('+', '-', '=' или 'x'):";
-                cin >> Symbol;
-                if (Symbol == '+')
-                {
-                    count.PLusOne();
-                }
-                else if (Symbol == '-')
-                {
-                    count.MinusOne();
-                }
-                else if (Symbol == '=')
-                {
-                    count.GetCurrentCount();
-                }
-                else if (Symbol == 'x')
-                {
-                    cout << "До свидания! " << endl;
-                    break;
-                }
-
-            }
-         
-
+            c.PLusOne();
         }
-        else if (answer == No)
+        else if (Symbol == '-')
         {
-            Counter counter;
-            while (true) 
-            {
-                cout << "Введите команду ('+', '-', '=' или 'x'):";
-                cin >> Symbol;
-                if (Symbol == '+')
-                {
-                    counter.PLusOne();
-                }
-                else if (Symbol == '-')
-                {
-                    counter.MinusOne();
-                }
-                else if (Symbol == '=')
-                {
-                    counter.GetCurrentCount();
-                }
-                else if (Symbol == 'x')
-                {
-                    cout << "До свидания! " << endl;
-                    break;
-                }
-
-            }
-            
+            c.MinusOne();
         }
-    
-    
+        else if (Symbol == '=')
+        {
+            c.GetCurrentCount();
+        }
+        else if (Symbol == 'x')
+        {
+            cout << "До свидания! " << endl;
+            break;
+        } 
+       
+    } while (true);
 }
+        
+
+      
+    
+
 
